@@ -1,4 +1,4 @@
-int pirPin=13;
+int pirPin=2;
 
 void setup()
 {
@@ -10,4 +10,5 @@ void loop()
 {
   int pirValue = digitalRead(pirPin);
   Serial.println(pirValue);
+  delay(500);
 }
