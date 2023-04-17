@@ -1,5 +1,5 @@
-int pinTrig = 4;
-int pinEcho = 3;
+int pinTrig = 12;
+int pinEcho = 13;
 int pinA = 5;
 int pinB = 6;
 int pinC = 7;
@@ -37,11 +37,12 @@ void loop() {
   Serial.print(distance);
   Serial.println(" cm");
   
-  if(distance>0 && distance<9){
+  if(distance>=0 && distance<=9){
     LED_display(distance);
   }else{
-    LED_display(0);}
-  
+    Serial.println("Out of range!");
+    LED_display(0);
+  }
   delay(500);
 }
 
