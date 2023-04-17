@@ -1,24 +1,24 @@
-int pirPin = 3;
-int ledPinA = 5;
-int ledPinB = 6;
+int sensorPin = 2;
+int ledPinA = 3;
+int ledPinB = 4;
 
 void setup()
 {
   Serial.begin(9600);
-  pinMode(pirPin, INPUT);
+  pinMode(sensorPin, INPUT);
   pinMode(ledPinA, OUTPUT);
   pinMode(ledPinB, OUTPUT);
 }
 
 void loop()
 {
-  int pirValue = digitalRead(pirPin);
-  if (pirValue == HIGH){
+  int sensorValue = digitalRead(sensorPin);
+  if (sensorValue == HIGH){
     Serial.println("Detected motion!");
     digitalWrite(ledPinA, HIGH);
     digitalWrite(ledPinB, HIGH);
     
-    delay(300);
+    delay(200);
     
     digitalWrite(ledPinA, LOW);
     digitalWrite(ledPinB, LOW);

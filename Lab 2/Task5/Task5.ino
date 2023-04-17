@@ -1,4 +1,4 @@
-int pirPin=3;
+int pirPin=2;
 
 void setup()
 {
