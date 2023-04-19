@@ -1,5 +1,5 @@
-int pinTrig = 12;
-int pinEcho = 13;
+int pinTrig = 4;
+int pinEcho = 3;
 int pinA = 5;
 int pinB = 6;
 int pinC = 7;
