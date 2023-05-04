@@ -14,15 +14,15 @@ const char MAIN_page[] PROGMEM = R"=====(
 <head>
 	<title>Choose right leds</title>
 </head>
+<center>
 <body>
 	<h1>Choose right leds</h1>
 	<p>Random number: <span id="random-number">0</span></p>
-	<a href="start"><button onclick="startGame()">Start</button></a>
+	<button onclick="startGame()">Start</button>
 	<button onclick="selectLed(1)">Led 1</button>
 	<button onclick="selectLed(2)">Led 2</button>
 	<button onclick="selectLed(3)">Led 3</button>
   <p>Your score: <span id="score">0</span></p>
-
 	<script>
 		function startGame() {
 			var xmlHttp = new XMLHttpRequest();
@@ -34,21 +34,18 @@ const char MAIN_page[] PROGMEM = R"=====(
       xmlHttp.open("GET", "start", true);
       xmlHttp.send();
 		}
-
-		// Hàm thực hiện việc chọn LED và hiển thị thông báo kết quả
 		function selectLed(ledNumber) {
 			var randomNumber = parseInt(document.getElementById("random-number").innerHTML);
 			var message;
       var score = parseInt(document.getElementById("score").innerHTML);
-
 			if (ledNumber === 1 && randomNumber === 1) {
 				message = "You choose the right LED! +1 point";
         score+=1; 
 			} else if (ledNumber === 2 && randomNumber === 2) {
-				message = "You choose the right LED!" +1 point;
+				message = "You choose the right LED! +1 point";
         score+=1;
 			} else if (ledNumber === 3 && randomNumber === 3) {
-				message = "You choose the right LED!" +1 point;
+				message = "You choose the right LED! +1 point";
         score+=1;
 			} else {
 				message = "Sorry, wrong choice. -1 point";
@@ -61,6 +58,7 @@ const char MAIN_page[] PROGMEM = R"=====(
 		}
 	</script>
 </body>
+</center>
 </html>
 )=====";
 
