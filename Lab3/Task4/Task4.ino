@@ -61,7 +61,7 @@ void setup() {
     } else {
       Serial.print("Kết nối thất bại");
       Serial.print(client.state());
-      Serial.println(" Thử lại sau 10s");
+      Serial.println(" Thử lại sau 10 s");
       delay(10000);
     }
   }
@@ -81,7 +81,7 @@ void loop() {
       } else {
         Serial.print("Kết nối thất bại");
         Serial.print(client.state());
-        Serial.println(" Thử lại sau 10s");
+        Serial.println(" Thử lại sau 10 s");
         delay(10000);
       }
     }
