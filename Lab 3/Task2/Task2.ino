@@ -8,7 +8,7 @@
 
 #include <ArduinoJson.h>
 
-int ledsPin[] = {D5, D6, D7};
+int ledsPin[] = {D3, D4, D5};
 
 #define trigPin D6
 #define echoPin D7
@@ -21,7 +21,7 @@ long distance, duration;
 const char* ssid = "UiTiOt-E3.1";
 const char* password = "UiTiOtAP";
 const char* url = "http://172.31.11.55:8000/";
-const int port = 8000;
+//const int port = 8000;
 
 HTTPClient http;
 WiFiClient wifiClient;
@@ -86,8 +86,9 @@ void loop() {
 
     deserializeJson(response, strResponse);
     int ledsNum = response["ledsNum"];
+    Serial.println(String(ledsNum));
     for (int i=0; i<ledsNum; i++){
-      digitalWrite(ledsNum, HIGH);
+      digitalWrite(ledsPin[i], HIGH);
     }
 
   } else {

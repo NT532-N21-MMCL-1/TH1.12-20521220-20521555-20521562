@@ -20,7 +20,7 @@ async def root(body:Body):
     lux = body.data.light
     distance = body.data.distance
 
-    if distance<5:
+    if 0<distance<10:
         if 0<lux<80: num = 3
         elif 80<lux<160: num = 2
         elif 160<lux<240: num = 1
