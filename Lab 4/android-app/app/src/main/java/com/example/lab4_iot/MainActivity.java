@@ -1,46 +1,49 @@
 package com.example.lab4_iot;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.FrameLayout;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
-    private Fragment[] fragments;
-    private BottomNavigationView bottomNavigationView;
-    private FrameLayout frameLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        fragments = new Fragment[]{
-                new HomeFragment(),
-                new DashboardFragment(),
-                new InsightsFragment(),
-                new LogsFragment()
-        };
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+        }
 
-        bottomNavigationView = findViewById(R.id.bottom_navigation);
-        frameLayout = findViewById(R.id.frame_container);
-
-        bottomNavigationView.setOnItemSelectedListener(item -> {
-            int position = item.getItemId();
-            if (position == R.id.navigation_fragment_view) {
-                // Hiển thị Fragment View
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.frame_container, new HomeFragment())
-                        .commit();
-            } else {
-                // Hiển thị Fragment tương ứng với MenuItem
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.frame_container, fragments[position])
-                        .commit();
+        BottomNavigationView bottomNav = findViewById(R.id.navigation);
+        bottomNav.setItemIconTintList(null);
+        bottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Fragment selectedFragment = null;
+                switch(item.getItemId()) {
+                    case R.id.navigation_home:
+                        selectedFragment = new HomeFragment();
+                        break;
+                    case R.id.navigation_dashboard:
+                        selectedFragment = new DashboardFragment();
+                        break;
+                    case R.id.navigation_insights:
+                        selectedFragment = new InsightsFragment();
+                        break;
+                    case R.id.navigation_logs:
+                        selectedFragment = new LogsFragment();
+                        break;
+                }
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+                return true;
             }
-            return true;
         });
     }
 }
