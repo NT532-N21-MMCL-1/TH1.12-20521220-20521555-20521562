@@ -86,27 +86,44 @@ server.send(200, "text/html", html); //Send web page
 }
 
 void randomNumber(){
+  allledsOFF();
+  delay(200);
   ledHIGH_LtoR();
   ledHIGH_RtoL();
   int number = random(1, 4);
+  allledsOFF();
   digitalWrite(ledsPin[number-1], HIGH);
   server.send(200, "text/plane", String(number));
 }
 
 void ledHIGH_LtoR(){
-  for (int i=0; i<sizeof(ledsPin); i++){
-    digitalWrite(ledsPin[i], HIGH);
-    delay(200);
-    digitalWrite(ledsPin[i], LOW);
-  }
+  digitalWrite(ledsPin[0], HIGH);
+  delay(200);
+  digitalWrite(ledsPin[0], LOW);
+  delay(200);
+  digitalWrite(ledsPin[1], HIGH);
+  delay(200);
+  digitalWrite(ledsPin[1], LOW);
+  delay(200);
+  digitalWrite(ledsPin[2], HIGH);
+  delay(200);
+  digitalWrite(ledsPin[2], LOW);
+  delay(200);
 }
 
 void ledHIGH_RtoL(){
-  for(int i=sizeof(ledsPin)-1; i>=0; i--){
-    digitalWrite(ledsPin[i], HIGH);
-    delay(200);
-    digitalWrite(ledsPin[i], LOW);
-  }
+  digitalWrite(ledsPin[2], HIGH);
+  delay(200);
+  digitalWrite(ledsPin[2], LOW);
+  delay(200);
+  digitalWrite(ledsPin[1], HIGH);
+  delay(200);
+  digitalWrite(ledsPin[1], LOW);
+  delay(200);
+  digitalWrite(ledsPin[0], HIGH);
+  delay(200);
+  digitalWrite(ledsPin[0], LOW);
+  delay(200);
 }
 
 //==============================================================
