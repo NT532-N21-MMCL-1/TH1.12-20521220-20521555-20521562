@@ -91,6 +91,8 @@ void randomNumber(){
   ledHIGH_LtoR();
   ledHIGH_RtoL();
   int number = random(1, 4);
+  Serial.print("Random result: ");
+  Serial.println(String(number));
   allledsOFF();
   digitalWrite(ledsPin[number-1], HIGH);
   server.send(200, "text/plane", String(number));
