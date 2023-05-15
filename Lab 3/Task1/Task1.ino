@@ -67,9 +67,7 @@ const char MAIN_page[] PROGMEM = R"=====(
 //On board LED Connected to GPIO2
 
 //#define LED LED_BUILTIN 
-#define led1 D3
-#define led2 D4
-#define led3 D5
+int ledsPin[] = {D3, D4, D5};
 
 //SSID and Password of your WiFi router
 const char* ssid = "UiTiOt-E3.1";
@@ -91,36 +89,24 @@ void randomNumber(){
   ledHIGH_LtoR();
   ledHIGH_RtoL();
   int number = random(1, 4);
+  digitalWrite(ledsPin[number-1], HIGH);
   server.send(200, "text/plane", String(number));
 }
 
 void ledHIGH_LtoR(){
-  digitalWrite(led1, HIGH);
-  delay(200);
-  digitalWrite(led1, LOW);
-  delay(200);
-  digitalWrite(led2, HIGH);
-  delay(200);
-  digitalWrite(led2, LOW);
-  delay(200);
-  digitalWrite(led3, HIGH);
-  delay(200);
-  digitalWrite(led3, LOW);
-  delay(200);
+  for (int i=0; i<sizeof(ledsPin); i++){
+    digitalWrite(ledsPin[i], HIGH);
+    delay(200);
+    digitalWrite(ledsPin[i], LOW);
+  }
 }
 
 void ledHIGH_RtoL(){
-  digitalWrite(led3, HIGH);
-  delay(200);
-  digitalWrite(led3, LOW);
-  delay(200);
-  digitalWrite(led2, HIGH);
-  delay(200);
-  digitalWrite(led2, LOW);
-  delay(200);
-  digitalWrite(led1, HIGH);
-  delay(200);
-  digitalWrite(led1, LOW);
+  for(int i=sizeof(ledsPin)-1; i>=0; i--){
+    digitalWrite(ledsPin[i], HIGH);
+    delay(200);
+    digitalWrite(ledsPin[i], LOW);
+  }
 }
 
 //==============================================================
@@ -131,17 +117,12 @@ void setup(){
 Serial.begin(115200);
 WiFi.begin(ssid, password); //Connect to your WiFi router
 Serial.println("");
-//Onboard LED port Direction output
-//pinMode(LED,OUTPUT); 
-pinMode(led1, OUTPUT);
-pinMode(led2, OUTPUT);
-pinMode(led3, OUTPUT);
 
-//Power on LED state off
-//digitalWrite(LED,HIGH);
-digitalWrite(led1, LOW);
-digitalWrite(led2, LOW);
-digitalWrite(led3, LOW);
+for(int i=0; i<sizeof(ledsPin); i++){
+  pinMode(ledsPin[i], OUTPUT);
+}
+
+allledsOFF();
 
 // Wait for connection
 while (WiFi.status() != WL_CONNECTED) {
@@ -167,4 +148,10 @@ Serial.println("HTTP server started");
 
 void loop(){
 server.handleClient(); //Handle client requests
+}
+
+void allledsOFF(){
+  for(int i=0; i<sizeof(ledsPin); i++){
+  digitalWrite(ledsPin[i], LOW);
+  }
 }
