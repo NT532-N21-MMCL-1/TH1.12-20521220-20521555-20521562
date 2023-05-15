@@ -16,8 +16,8 @@ public class TemperatureRoomFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_temperature_room, container, false);
         ProgressBar progressBar = view.findViewById(R.id.progressBar);
-        int data = 50; // Giá trị data
-        progressBar.setProgress(data);
+        int progressData = 50; // Giá trị data
+        progressBar.setProgress(progressData);
         return view;
     }
 }
