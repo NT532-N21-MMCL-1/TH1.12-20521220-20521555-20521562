@@ -25,9 +25,9 @@ public class DashboardFragment extends Fragment {
         TabLayout tabLayout = view.findViewById(R.id.tab_layout);
 
         MyPagerAdapter adapter = new MyPagerAdapter(getChildFragmentManager());
-        adapter.addFragment(new TemperatureRoomFragment(), "Temperature Room");
-        adapter.addFragment(new HumidityRoomFragment(), "Humidity Room");
-        adapter.addFragment(new LightRoomFragment(), "Light Room");
+        adapter.addFragment(new TemperatureRoomFragment(), "Temperature");
+        adapter.addFragment(new HumidityRoomFragment(), "Humidity");
+        adapter.addFragment(new LightRoomFragment(), "Light");
 
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);

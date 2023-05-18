@@ -15,7 +15,7 @@ public class TemperatureRoomFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_temperature_room, container, false);
-        ProgressBar progressBar = view.findViewById(R.id.progressBar);
+        ProgressBar progressBar = view.findViewById(R.id.temperatureCircle);
         int progressData = 50; // Giá trị data
         progressBar.setProgress(progressData);
         return view;
