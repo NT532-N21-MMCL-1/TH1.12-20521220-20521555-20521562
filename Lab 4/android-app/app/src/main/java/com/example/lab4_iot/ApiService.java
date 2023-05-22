@@ -7,4 +7,7 @@ import retrofit2.http.Path;
 public interface ApiService {
     @GET("wemos/state/{name}")
     Call<stateWeMos> getWeMosState(@Path("name") String nameWeMos);
+
+    @GET("wemos/database/all")
+    Call<ListSensorValue[]> getListSensorValue();
 }
