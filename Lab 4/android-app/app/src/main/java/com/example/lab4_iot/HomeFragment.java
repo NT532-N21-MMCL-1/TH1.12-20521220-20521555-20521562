@@ -40,39 +40,7 @@ public class HomeFragment extends Fragment {
 
 //        callStateAPI("d1A", txtStateA);
 //        callStateAPI("d1B", txtStateB);
-
-        OkHttpClient client = new OkHttpClient();
-        Request request = new Request
-                .Builder().url("ws://192.168.1.25:8080").build();
-        webSocket = client.newWebSocket(request, new MyWebSocketListener());
         return view;
-    }
-
-    private class MyWebSocketListener extends WebSocketListener{
-        @Override
-        public void onOpen(WebSocket webSocket, okhttp3.Response response){
-            super.onOpen(webSocket, response);
-            Log.d("WebSocket", "Connected");
-        }
-
-        @Override
-        public void onMessage(WebSocket webSocket, String text){
-            super.onMessage(webSocket, text);
-            Log.d("WebSocket", "Received message: " + text);
-        }
-
-        @Override
-        public void onClosed(WebSocket webSocket,int code, String reason){
-            super.onClosed(webSocket, code, reason);
-            Log.d("WebSocket", "Disconnected");
-        }
-
-        @Override
-        public void onFailure(WebSocket webSocket, Throwable t, okhttp3.Response response) {
-            super.onFailure(webSocket, t, response);
-            // Xử lý khi gặp lỗi kết nối WebSocket
-            Log.e("WebSocket", "Error: " + t.getMessage());
-        }
     }
 
     private void callStateAPI(String name, TextView txtState){
