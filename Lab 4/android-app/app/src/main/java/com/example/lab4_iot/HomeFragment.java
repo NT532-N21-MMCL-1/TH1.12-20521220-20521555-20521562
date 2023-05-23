@@ -31,29 +31,42 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class HomeFragment extends Fragment {
-    private static final String TAG = "MQTTAndroid";
-
-    private static String BROKER_URL = "tcp://172.31.9.11:1883";
-    private static String CLIENT_ID = "android-app";
-
-
+    private TextView txtStateA, txtStateB;
+    private Handler handler;
+    private Runnable apiRunnable;
+    private int list_length = 0;
+    ApiService apiService = ApiClient.getApiService();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        TextView txtStateA, txtStateB;
         txtStateA = view.findViewById(R.id.txtStateA);
         txtStateB = view.findViewById(R.id.txtStateB);
+
+        callAllDB();
 
         return view;
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-    }
+    private void callAllDB(){
+        Call<ListSensorValue[]> call = apiService.getListSensorValue();
+        call.enqueue(new Callback<ListSensorValue[]>() {
+            @Override
+            public void onResponse(Call<ListSensorValue[]> call, Response<ListSensorValue[]> response) {
+                Log.d("Call allDB", "onResponse: " + response.body().toString());
+                ListSensorValue[] list = response.body();
+                if (list.length != list_length){
+                    txtStateA.setText("online");
+                }
+                list_length = list.length;
+                Log.d("Call allDB", "onResponse: " + list_length);
+            }
 
-    private void subscribeToTopic(String topic){
+            @Override
+            public void onFailure(Call<ListSensorValue[]> call, Throwable t) {
+
+            }
+        });
     }
 }
