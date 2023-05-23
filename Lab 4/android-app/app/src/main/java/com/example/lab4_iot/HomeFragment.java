@@ -10,10 +10,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+
+import org.eclipse.paho.client.mqttv3.MqttClient;
+import org.eclipse.paho.client.mqttv3.MqttException;
 
 import okhttp3.OkHttp;
 import okhttp3.OkHttpClient;
@@ -26,8 +31,11 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class HomeFragment extends Fragment {
-    ApiService apiService = ApiClient.getApiService();
-    private WebSocket webSocket;
+    private static final String TAG = "MQTTAndroid";
+
+    private static String BROKER_URL = "tcp://172.31.9.11:1883";
+    private static String CLIENT_ID = "android-app";
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -38,44 +46,14 @@ public class HomeFragment extends Fragment {
         txtStateA = view.findViewById(R.id.txtStateA);
         txtStateB = view.findViewById(R.id.txtStateB);
 
-//        callStateAPI("d1A", txtStateA);
-//        callStateAPI("d1B", txtStateB);
         return view;
     }
 
-    private void callStateAPI(String name, TextView txtState){
-        Call<stateWeMos> stateWeMosCall = apiService.getWeMosState(name);
-        stateWeMosCall.enqueue(new Callback<stateWeMos>() {
-            @Override
-            public void onResponse(Call<stateWeMos> call, Response<stateWeMos> response) {
-                stateWeMos state = response.body();
-                Log.d("wemos info", String.valueOf(response.code()));
-                Log.d("wemos info", state.toString());
-
-                if (state.state.equals("online")) txtState.setTextColor(Color.parseColor("#2cd400"));
-                if (state.state.equals("offline")) txtState.setTextColor(Color.parseColor("#fe3332"));
-                txtState.setText(state.state.toString());
-
-                refresh(1000, name, txtState);
-            }
-
-            @Override
-            public void onFailure(Call<stateWeMos> call, Throwable t) {
-                Log.d("wemos info", t.toString());
-            }
-        });
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
     }
 
-    private void refresh(int milliseconds, String name, TextView txtState){
-        final Handler handler = new Handler();
-
-        final Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
-                callStateAPI(name, txtState);
-            }
-        };
-
-        handler.postDelayed(runnable, milliseconds);
+    private void subscribeToTopic(String topic){
     }
 }
