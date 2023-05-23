@@ -6,7 +6,7 @@
 
 const char* ssid = "dai duong";
 const char* password = "0909309565bc";
-const char* url = "http://192.168.0.102:8000/wemos/database/insert";
+const char* url = "http://192.168.0.102:8000/wemos_dht/sqlite/insert";
 const char* webSocketServerIP;
 const int webSocketServerPort = 80; 
 
@@ -35,28 +35,27 @@ void setup() {
 }
 
 void loop() {
-  // jsonObj["temperature"] = 123.123;
-  // jsonObj["humidity"] = 456.456;
-  // jsonObj["light"] = 789.789;
+  jsonObj["temperature"] = 123.123;
+  jsonObj["humidity"] = 456.456;
 
-  // String jsonString;
-  // serializeJson(jsonObj, jsonString);
-  // Serial.println(jsonString);
+  String jsonString;
+  serializeJson(jsonObj, jsonString);
+  Serial.println(jsonString);
 
-  // int httpResponseCode = http.POST(jsonString);
+  int httpResponseCode = http.POST(jsonString);
 
-  // if (httpResponseCode > 0) {
-  //   Serial.println(httpResponseCode);
-  //   String strResponse = http.getString();
-  //   Serial.println(strResponse);
-  // } else {
-  //   Serial.print("Error on HTTP request: ");
-  //   Serial.println(httpResponseCode);
+  if (httpResponseCode > 0) {
+    Serial.println(httpResponseCode);
+    String strResponse = http.getString();
+    Serial.println(strResponse);
+  } else {
+    Serial.print("Error on HTTP request: ");
+    Serial.println(httpResponseCode);
 
-  //   String errorDescription = http.errorToString(httpResponseCode);
-  //   Serial.print("Error description: ");
-  //   Serial.println(errorDescription);
-  // }
-  // http.end();
-  // delay(1000);
+    String errorDescription = http.errorToString(httpResponseCode);
+    Serial.print("Error description: ");
+    Serial.println(errorDescription);
+  }
+  http.end();
+  delay(3000);
 }
