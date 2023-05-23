@@ -119,7 +119,6 @@ public class InsightsFragment extends Fragment {
         ArrayList<Entry> entries = new ArrayList<>();
         for(int i=0; i<listLineChartData.length; i++){
             entries.add(new Entry(i, listLineChartData[i].getTemperature()));
-            xLabels[i] = listLineChartData[i].getTimestamp();
         }
 
         for(int i=0; i<xLabels.length; i++){
@@ -138,7 +137,7 @@ public class InsightsFragment extends Fragment {
         lineChart.setData(lineData);
 
         XAxis xAxis = lineChart.getXAxis();
-        xAxis.setValueFormatter(new MyXAxisValueFormatter(xLabels));
+        //xAxis.setValueFormatter(new MyXAxisValueFormatter(xLabels));
         xAxis.setDrawGridLines(false);
         xAxis.setLabelCount(listLineChartData.length, true);
         xAxis.setGranularity(1f);
@@ -159,7 +158,6 @@ public class InsightsFragment extends Fragment {
         ArrayList<BarEntry> entries = new ArrayList<>();
         for(int i=0; i<listBarCharData.length; i++){
             entries.add(new BarEntry(i, listBarCharData[i].getHumidity()));
-            xLabels[i] = listBarCharData[i].getTimestamp();
         }
 
         BarDataSet dataSet = new BarDataSet(entries, "Humidity value");
@@ -172,7 +170,7 @@ public class InsightsFragment extends Fragment {
         barData.setBarWidth(0.5f);
 
         XAxis xAxis = barChart.getXAxis();
-        xAxis.setValueFormatter(new MyXAxisValueFormatter(xLabels));
+        //xAxis.setValueFormatter(new MyXAxisValueFormatter(xLabels));
         xAxis.setDrawGridLines(false);
         xAxis.setLabelCount(listBarCharData.length, true);
 
@@ -190,7 +188,6 @@ public class InsightsFragment extends Fragment {
 
         for(int i=0; i<listLineChartData.length; i++){
             entries.add(new Entry(i, listLineChartData[i].getLight()));
-            xLabels[i] = listLineChartData[i].getTimestamp();
         }
 
         LineDataSet dataSet = new LineDataSet(entries, "Light value");
@@ -209,7 +206,7 @@ public class InsightsFragment extends Fragment {
         lineChart.setData(lineData);
 
         XAxis xAxis = lineChart.getXAxis();
-        xAxis.setValueFormatter(new MyXAxisValueFormatter(xLabels));
+        //xAxis.setValueFormatter(new MyXAxisValueFormatter(xLabels));
         xAxis.setDrawGridLines(false);
         xAxis.setLabelCount(listLineChartData.length, true);
         xAxis.setGranularity(1f);

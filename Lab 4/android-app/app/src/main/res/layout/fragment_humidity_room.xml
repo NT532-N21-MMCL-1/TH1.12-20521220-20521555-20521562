@@ -18,8 +18,7 @@
             android:layout_height="300dp"
             android:layout_centerInParent="true"
             android:indeterminateOnly="false"
-            android:max="100"
-            android:progress="20"
+            android:max="200"
             android:progressDrawable="@drawable/progress_circle" />
 
         <RelativeLayout
@@ -34,7 +33,7 @@
                 android:layout_centerInParent="true"
                 android:text="value"
                 android:textColor="#007dfe"
-                android:textSize="50sp"
+                android:textSize="40sp"
                 android:textStyle="bold" />
 
             <TextView
