@@ -6,9 +6,6 @@ public class ListSensorValue {
     @SerializedName("id")
     private int id;
 
-    @SerializedName("timestamp")
-    private String timestamp;
-
     @SerializedName("temperature")
     private float temperature;
 
@@ -20,10 +17,6 @@ public class ListSensorValue {
 
     public int getId() {
         return id;
-    }
-
-    public String getTimestamp() {
-        return timestamp;
     }
 
     public float getTemperature() {
@@ -42,7 +35,6 @@ public class ListSensorValue {
     public String toString() {
         return "ListSensorValue{" +
                 "id=" + id +
-                ", timestamp='" + timestamp + '\'' +
                 ", temperature=" + temperature +
                 ", humidity=" + humidity +
                 ", light=" + light +
