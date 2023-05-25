@@ -36,7 +36,7 @@ public class HumidityRoomFragment extends Fragment {
             @Override
             public void run() {
                 callCurrentHum();
-                handler.postDelayed(this, 5000); // Gọi lại sau 5 giây
+                handler.postDelayed(this, 5500); // Gọi lại sau 5 giây
             }
         };
 

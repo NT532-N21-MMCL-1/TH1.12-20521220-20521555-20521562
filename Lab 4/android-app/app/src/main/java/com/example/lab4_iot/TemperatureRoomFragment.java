@@ -39,7 +39,7 @@ public class TemperatureRoomFragment extends Fragment {
             @Override
             public void run() {
                 callCurrentTemp();
-                handler.postDelayed(this, 5000); // Gọi lại sau 5 giây
+                handler.postDelayed(this, 5500); // Gọi lại sau 5 giây
             }
         };
         return view;

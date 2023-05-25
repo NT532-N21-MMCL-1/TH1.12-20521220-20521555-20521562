@@ -96,18 +96,20 @@ public class InsightsFragment extends Fragment {
             @Override
             public void onResponse(Call<ListSensorValue[]> call, Response<ListSensorValue[]> response) {
                 ListSensorValue[] apiResponses = response.body();
+
                 importToTemperatureChart(temperatureChart, apiResponses);
-                importToHumidityChart(humidityChart, apiResponses);
-                importToLightChart(lightChart, apiResponses);
+                //importToHumidityChart(humidityChart, apiResponses);
+                //importToLightChart(lightChart, apiResponses);
 
                 Gson gson = new Gson();
                 String jsonString = gson.toJson(apiResponses);
                 Log.d("API Response", jsonString);
+                Log.d("API Response", String.valueOf(response.code()));
             }
 
             @Override
             public void onFailure(Call<ListSensorValue[]> call, Throwable t) {
-
+                Log.e("API Response", "onFailure: " + t.toString());
             }
         });
     }
@@ -120,11 +122,6 @@ public class InsightsFragment extends Fragment {
         for(int i=0; i<listLineChartData.length; i++){
             entries.add(new Entry(i, listLineChartData[i].getTemperature()));
         }
-
-        for(int i=0; i<xLabels.length; i++){
-            Log.d("xLabels", xLabels[i]);
-        }
-
         LineDataSet dataSet = new LineDataSet(entries, "Temperature value");
         dataSet.setColor(Color.parseColor("#f5be49"));
         dataSet.setValueTextColor(Color.BLACK);
@@ -137,9 +134,8 @@ public class InsightsFragment extends Fragment {
         lineChart.setData(lineData);
 
         XAxis xAxis = lineChart.getXAxis();
-        //xAxis.setValueFormatter(new MyXAxisValueFormatter(xLabels));
         xAxis.setDrawGridLines(false);
-        xAxis.setLabelCount(listLineChartData.length, true);
+        xAxis.setLabelCount(5, true);
         xAxis.setGranularity(1f);
 
         YAxis yAxisLeft = lineChart.getAxisLeft();
