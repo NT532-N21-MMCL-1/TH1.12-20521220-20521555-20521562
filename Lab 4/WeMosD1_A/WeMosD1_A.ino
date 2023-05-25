@@ -3,10 +3,11 @@
 #include <WiFiClient.h>
 #include <WebSocketsClient.h>
 #include <ArduinoJson.h>
+#include <DHT.h>
 
-const char* ssid = "UiTiOt-E3.1";
-const char* password = "UiTiOtAP";
-const char* url = "http://172.31.11.55:8000/wemos_dht/sqlite/insert";
+const char* ssid = "dai duong";
+const char* password = "0909309565bc";
+const char* url = "http://192.168.0.102:8000/wemos_dht/sqlite/insert";
 const char* webSocketServerIP;
 const int webSocketServerPort = 80; 
 
@@ -17,6 +18,10 @@ StaticJsonDocument<200> jsonObj;
 //JsonObject dataObj = jsonObj.createNestedObject("data");
 
 WebSocketsClient webSocket;
+
+#define DHTPIN D3
+const int DHTTYPE = DHT11;  
+DHT dht(DHTPIN, DHTTYPE);
 
 void setup() {
   Serial.begin(115200);
@@ -32,11 +37,14 @@ void setup() {
   Serial.println(WiFi.localIP());
 
   http.begin(wifiClient, url);
+  dht.begin();
 }
 
 void loop() {
-  jsonObj["temperature"] = 123.123;
-  jsonObj["humidity"] = 456.456;
+  float h = dht.readHumidity();    
+  float t = dht.readTemperature(); 
+  jsonObj["temperature"] = t;
+  jsonObj["humidity"] = h;
 
   String jsonString;
   serializeJson(jsonObj, jsonString);
