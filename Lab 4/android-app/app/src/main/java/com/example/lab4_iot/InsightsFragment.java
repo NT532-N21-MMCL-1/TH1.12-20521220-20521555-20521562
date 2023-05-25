@@ -7,6 +7,7 @@ import android.os.Bundle;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,6 +45,8 @@ public class InsightsFragment extends Fragment {
     private LineChart temperatureChart, lightChart;
     private BarChart humidityChart;
     private TextView charTitle;
+    private Handler handler;
+    private Runnable apiRunnable;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -55,7 +58,14 @@ public class InsightsFragment extends Fragment {
 
         charTitle = view.findViewById(R.id.chartTitle);
 
-        getListSensorValues();
+        handler = new Handler();
+        apiRunnable = new Runnable() {
+            @Override
+            public void run() {
+                getSensorValues("7");
+                handler.postDelayed(this, 5000);
+            }
+        };
 
         autoCompleteTextView = view.findViewById(R.id.auto_complete_txt);
         adapterItems = new ArrayAdapter<String>(getContext(), R.layout.list_chart_select, item);
@@ -90,15 +100,14 @@ public class InsightsFragment extends Fragment {
         return view;
     }
 
-    private void getListSensorValues(){
-        Call<ListSensorValue[]> listSensorValueCall = apiService.getListSensorValue();
-        listSensorValueCall.enqueue(new Callback<ListSensorValue[]>() {
+    private void getSensorValues(String num){
+        Call<ListSensorValue[]> numOfDataCall = apiService.getNumOfData(num);
+        numOfDataCall.enqueue(new Callback<ListSensorValue[]>() {
             @Override
             public void onResponse(Call<ListSensorValue[]> call, Response<ListSensorValue[]> response) {
                 ListSensorValue[] apiResponses = response.body();
-
                 importToTemperatureChart(temperatureChart, apiResponses);
-                //importToHumidityChart(humidityChart, apiResponses);
+                importToHumidityChart(humidityChart, apiResponses);
                 //importToLightChart(lightChart, apiResponses);
 
                 Gson gson = new Gson();
@@ -119,9 +128,12 @@ public class InsightsFragment extends Fragment {
 
         String[] xLabels = new String[listLineChartData.length];
         ArrayList<Entry> entries = new ArrayList<>();
+
         for(int i=0; i<listLineChartData.length; i++){
+            xLabels[i] = listLineChartData[i].getDht_timestamp();
             entries.add(new Entry(i, listLineChartData[i].getTemperature()));
         }
+
         LineDataSet dataSet = new LineDataSet(entries, "Temperature value");
         dataSet.setColor(Color.parseColor("#f5be49"));
         dataSet.setValueTextColor(Color.BLACK);
@@ -135,11 +147,9 @@ public class InsightsFragment extends Fragment {
 
         XAxis xAxis = lineChart.getXAxis();
         xAxis.setDrawGridLines(false);
-        xAxis.setLabelCount(5, true);
+        xAxis.setValueFormatter(new XAxisValueFormatter(xLabels));
+        xAxis.setLabelCount(7, true);
         xAxis.setGranularity(1f);
-
-        YAxis yAxisLeft = lineChart.getAxisLeft();
-        YAxis yAxisRight = lineChart.getAxisRight();
 
         Legend legend = lineChart.getLegend();
         legend.setTextSize(12);
@@ -154,6 +164,7 @@ public class InsightsFragment extends Fragment {
         ArrayList<BarEntry> entries = new ArrayList<>();
         for(int i=0; i<listBarCharData.length; i++){
             entries.add(new BarEntry(i, listBarCharData[i].getHumidity()));
+            xLabels[i] = listBarCharData[i].getDht_timestamp();
         }
 
         BarDataSet dataSet = new BarDataSet(entries, "Humidity value");
@@ -166,9 +177,10 @@ public class InsightsFragment extends Fragment {
         barData.setBarWidth(0.5f);
 
         XAxis xAxis = barChart.getXAxis();
-        //xAxis.setValueFormatter(new MyXAxisValueFormatter(xLabels));
+        xAxis.setValueFormatter(new XAxisValueFormatter(xLabels));
         xAxis.setDrawGridLines(false);
-        xAxis.setLabelCount(listBarCharData.length, true);
+        xAxis.setLabelCount(7, true);
+        xAxis.setGranularity(1f);
 
         Legend legend = barChart.getLegend();
         legend.setTextSize(12);
@@ -184,6 +196,7 @@ public class InsightsFragment extends Fragment {
 
         for(int i=0; i<listLineChartData.length; i++){
             entries.add(new Entry(i, listLineChartData[i].getLight()));
+            xLabels[i] = listLineChartData[i].getBh1750_timestamp();
         }
 
         LineDataSet dataSet = new LineDataSet(entries, "Light value");
@@ -202,18 +215,35 @@ public class InsightsFragment extends Fragment {
         lineChart.setData(lineData);
 
         XAxis xAxis = lineChart.getXAxis();
-        //xAxis.setValueFormatter(new MyXAxisValueFormatter(xLabels));
+        xAxis.setValueFormatter(new XAxisValueFormatter(xLabels));
         xAxis.setDrawGridLines(false);
-        xAxis.setLabelCount(listLineChartData.length, true);
+        xAxis.setLabelCount(7, true);
         xAxis.setGranularity(1f);
-
-        YAxis yAxisLeft = lineChart.getAxisLeft();
-        YAxis yAxisRight = lineChart.getAxisRight();
 
         Legend legend = lineChart.getLegend();
         legend.setTextSize(12);
 
         lineChart.getDescription().setEnabled(false);
         lineChart.invalidate();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        startAPICalls();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        stopAPICalls();
+    }
+
+    private void startAPICalls() {
+        handler.postDelayed(apiRunnable, 0);
+    }
+
+    private void stopAPICalls() {
+        handler.removeCallbacks(apiRunnable);
     }
 }
