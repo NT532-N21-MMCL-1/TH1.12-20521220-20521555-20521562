@@ -4,9 +4,9 @@
 #include <WebSocketsClient.h>
 #include <ArduinoJson.h>
 
-const char* ssid = "dai duong";
-const char* password = "0909309565bc";
-const char* url = "http://192.168.0.102:8000/wemos_dht/sqlite/insert";
+const char* ssid = "UiTiOt-E3.1";
+const char* password = "UiTiOtAP";
+const char* url = "http://172.31.11.55:8000/wemos_dht/sqlite/insert";
 const char* webSocketServerIP;
 const int webSocketServerPort = 80; 
 
@@ -57,5 +57,5 @@ void loop() {
     Serial.println(errorDescription);
   }
   http.end();
-  delay(3000);
+  delay(5000);
 }
