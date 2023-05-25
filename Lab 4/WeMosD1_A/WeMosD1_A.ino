@@ -7,7 +7,7 @@
 
 const char* ssid = "dai duong";
 const char* password = "0909309565bc";
-const char* url = "http://192.168.0.102:8000/wemos_dht/sqlite/insert";
+const char* url = "http://192.168.0.102:8000/sqlite/insert/wemos_dht";
 const char* webSocketServerIP;
 const int webSocketServerPort = 80; 
 
