@@ -34,8 +34,7 @@ public class HomeFragment extends Fragment {
     private TextView txtStateA, txtStateB;
     private Handler handler;
     private Runnable apiRunnable;
-    private int pre_Tempsize = 0, cur_Tempsize = 0,
-                lengthLight = 0, cur_Lightsize = 0;
+    private int pre_size = 0, cur_size = 0;
     ApiService apiService = ApiClient.getApiService();
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,7 +48,8 @@ public class HomeFragment extends Fragment {
         apiRunnable = new Runnable() {
             @Override
             public void run() {
-                getTempColSize();
+                getColumnSize("temperature");
+                //getColumnSize("light");
                 handler.postDelayed(this, 5000);
             }
         };
@@ -76,78 +76,43 @@ public class HomeFragment extends Fragment {
         handler.removeCallbacks(apiRunnable);
     }
 
-    private void getTempColSize(){
-        Call<Integer> call = apiService.getTempColSize();
+    private void getColumnSize(String name){
+        Call<Integer> call = apiService.getColumnSize(name);
         call.enqueue(new Callback<Integer>() {
             @Override
             public void onResponse(Call<Integer> call, Response<Integer> response) {
-                Log.d("State Wemos", "Temp Column Size: " + response.body().toString());
-                cur_Tempsize = cur_Tempsize = Integer.parseInt(response.body().toString());
+                Log.d("State Wemos", name + "Column Size: " + response.body().toString());
+                cur_size = cur_size = Integer.parseInt(response.body().toString());
 
-                if(response.body() == null || pre_Tempsize==0){
+                if(response.body() == null || pre_size==0){
                     txtStateA.setText("offline");
                     txtStateA.setTextColor(Color.parseColor("#fe3332"));
                     Log.d("State Wemos", "onResponse: offline");
-                    Log.d("State Wemos", "lengthTemp: " + pre_Tempsize);
+                    Log.d("State Wemos", "length " + name + ": " + pre_size);
                 }
                 else {
-                    cur_Tempsize = Integer.parseInt(response.body().toString());
-                    if(cur_Tempsize != pre_Tempsize){
+                    cur_size = Integer.parseInt(response.body().toString());
+                    if(cur_size != pre_size){
                         txtStateA.setText("online");
                         txtStateA.setTextColor(Color.parseColor("#2cd400"));
                         Log.d("State Wemos", "onResponse: online");
-                        Log.d("State Wemos", "lengthTemp: " + pre_Tempsize);
-                        Log.d("State Wemos", "cur_Tempsize: " + cur_Tempsize);
+                        Log.d("State Wemos", "length " + name + ": " + pre_size);
+                        Log.d("State Wemos", "cur_Tempsize: " + cur_size);
                     }
                     else{
                         txtStateA.setText("offline");
                         txtStateA.setTextColor(Color.parseColor("#fe3332"));
                         Log.d("State Wemos", "onResponse: offline");
-                        Log.d("State Wemos", "lengthTemp: " + pre_Tempsize);
-                        Log.d("State Wemos", "cur_Tempsize: " + cur_Tempsize);
+                        Log.d("State Wemos", "length " + name + ": " + pre_size);
+                        Log.d("State Wemos", "cur_size " + name + ": " + cur_size);
                     }
                 }
-                pre_Tempsize = cur_Tempsize;
+                pre_size = cur_size;
             }
 
             @Override
             public void onFailure(Call<Integer> call, Throwable t) {
-                Log.e("Get Temp Size", "onFailure: " + t.toString() );
-            }
-        });
-    }
-
-    private void getLightColSize(){
-        Call<Integer> call = apiService.getLightColSize();
-        call.enqueue(new Callback<Integer>() {
-            @Override
-            public void onResponse(Call<Integer> call, Response<Integer> response) {
-                Log.d("Light Column Size", "onResponse: " + response.body().toString());
-
-                if(response.body() == null || lengthLight==0){
-                    txtStateB.setText("offline");
-                    txtStateB.setTextColor(Color.parseColor("#fe3332"));
-                    Log.d("State Wemos", "onResponse: offline");
-                }
-                else {
-                    cur_Lightsize = Integer.parseInt(response.body().toString());
-                    if(cur_Lightsize != lengthLight){
-                        txtStateB.setText("online");
-                        txtStateB.setTextColor(Color.parseColor("#2cd400"));
-                        Log.d("State Wemos", "onResponse: online");
-                    }
-                    else{
-                        txtStateB.setText("offline");
-                        txtStateB.setTextColor(Color.parseColor("#fe3332"));
-                        Log.d("State Wemos", "onResponse: offline");
-                    }
-                }
-                lengthLight = cur_Lightsize;
-            }
-
-            @Override
-            public void onFailure(Call<Integer> call, Throwable t) {
-                Log.e("Get Light Size", "onFailure: " + t.toString() );
+                Log.e("Get" + name + " size: ", "onFailure: " + t.toString() );
             }
         });
     }
