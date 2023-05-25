@@ -34,7 +34,7 @@ public class HomeFragment extends Fragment {
     private TextView txtStateA, txtStateB;
     private Handler handler;
     private Runnable apiRunnable;
-    private int lengthTemp = 0, cur_Tempsize = 0,
+    private int pre_Tempsize = 0, cur_Tempsize = 0,
                 lengthLight = 0, cur_Lightsize = 0;
     ApiService apiService = ApiClient.getApiService();
     @Override
@@ -50,7 +50,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void run() {
                 getTempColSize();
-                handler.postDelayed(this, 5500); // Gọi lại sau 5 giây
+                handler.postDelayed(this, 5000);
             }
         };
         return view;
@@ -81,27 +81,33 @@ public class HomeFragment extends Fragment {
         call.enqueue(new Callback<Integer>() {
             @Override
             public void onResponse(Call<Integer> call, Response<Integer> response) {
-                Log.d("Temp Column Size", "onResponse: " + response.body().toString());
+                Log.d("State Wemos", "Temp Column Size: " + response.body().toString());
+                cur_Tempsize = cur_Tempsize = Integer.parseInt(response.body().toString());
 
-                if(response.body() == null || lengthTemp==0){
+                if(response.body() == null || pre_Tempsize==0){
                     txtStateA.setText("offline");
                     txtStateA.setTextColor(Color.parseColor("#fe3332"));
                     Log.d("State Wemos", "onResponse: offline");
+                    Log.d("State Wemos", "lengthTemp: " + pre_Tempsize);
                 }
                 else {
                     cur_Tempsize = Integer.parseInt(response.body().toString());
-                    if(cur_Tempsize != lengthTemp){
+                    if(cur_Tempsize != pre_Tempsize){
                         txtStateA.setText("online");
                         txtStateA.setTextColor(Color.parseColor("#2cd400"));
                         Log.d("State Wemos", "onResponse: online");
+                        Log.d("State Wemos", "lengthTemp: " + pre_Tempsize);
+                        Log.d("State Wemos", "cur_Tempsize: " + cur_Tempsize);
                     }
                     else{
                         txtStateA.setText("offline");
                         txtStateA.setTextColor(Color.parseColor("#fe3332"));
                         Log.d("State Wemos", "onResponse: offline");
+                        Log.d("State Wemos", "lengthTemp: " + pre_Tempsize);
+                        Log.d("State Wemos", "cur_Tempsize: " + cur_Tempsize);
                     }
                 }
-                lengthTemp = cur_Tempsize;
+                pre_Tempsize = cur_Tempsize;
             }
 
             @Override
