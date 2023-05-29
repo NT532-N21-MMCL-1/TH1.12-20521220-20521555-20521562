@@ -44,22 +44,22 @@ public class DashboardFragment extends Fragment {
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
 
-//        mqttHandler = new MqttHandler();
-//        mqttHandler.connect(BROKER_URL,CLIENT_ID);
+        mqttHandler = new MqttHandler();
+        mqttHandler.connect(BROKER_URL,CLIENT_ID);
 
-//        light1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                mqttHandler.publish("mmcl/nhom12/led/n1", "clicked");
-//            }
-//        });
-//
-//        light2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                mqttHandler.publish("mmcl/nhom12/led/n2", "clicked");
-//            }
-//        });
+        light1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mqttHandler.publish("mmcl/nhom12/led/n1", "clicked");
+            }
+        });
+
+        light2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mqttHandler.publish("mmcl/nhom12/led/n2", "clicked");
+            }
+        });
         return view;
     }
 }
