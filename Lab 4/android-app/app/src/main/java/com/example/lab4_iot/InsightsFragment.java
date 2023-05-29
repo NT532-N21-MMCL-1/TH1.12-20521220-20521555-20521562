@@ -31,8 +31,14 @@ import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.google.gson.Gson;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import java.io.IOException;
 import java.util.ArrayList;
 
+import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -62,7 +68,7 @@ public class InsightsFragment extends Fragment {
         apiRunnable = new Runnable() {
             @Override
             public void run() {
-                getSensorValues("7");
+                getSensorValues("temperature", "5");
                 handler.postDelayed(this, 5000);
             }
         };
@@ -100,38 +106,41 @@ public class InsightsFragment extends Fragment {
         return view;
     }
 
-    private void getSensorValues(String num){
-        Call<ListSensorValue[]> numOfDataCall = apiService.getNumOfData(num);
-        numOfDataCall.enqueue(new Callback<ListSensorValue[]>() {
+    private void getSensorValues(String name, String num){
+        Call<ResponseBody> numOfDataCall = apiService.getNumOfData(name, num);
+        numOfDataCall.enqueue(new Callback<ResponseBody>() {
             @Override
-            public void onResponse(Call<ListSensorValue[]> call, Response<ListSensorValue[]> response) {
-                ListSensorValue[] apiResponses = response.body();
-                importToTemperatureChart(temperatureChart, apiResponses);
-                importToHumidityChart(humidityChart, apiResponses);
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                ResponseBody responseBody = response.body();
+                importToTemperatureChart(temperatureChart, responseBody, num);
+//                importToHumidityChart(humidityChart, apiResponses);
                 //importToLightChart(lightChart, apiResponses);
-
-                Gson gson = new Gson();
-                String jsonString = gson.toJson(apiResponses);
-                Log.d("API Response", jsonString);
-                Log.d("API Response", String.valueOf(response.code()));
             }
 
             @Override
-            public void onFailure(Call<ListSensorValue[]> call, Throwable t) {
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
                 Log.e("API Response", "onFailure: " + t.toString());
             }
         });
     }
 
-    private void importToTemperatureChart(LineChart lineChart, ListSensorValue[] listLineChartData){
+    private void importToTemperatureChart(LineChart lineChart, ResponseBody responseBody, String num){
         lineChart.setDrawGridBackground(false);
-
-        String[] xLabels = new String[listLineChartData.length];
+        String[] xLabels = new String[Integer.parseInt(num)];
         ArrayList<Entry> entries = new ArrayList<>();
 
-        for(int i=0; i<listLineChartData.length; i++){
-            xLabels[i] = listLineChartData[i].getDht_timestamp();
-            entries.add(new Entry(i, listLineChartData[i].getTemperature()));
+        try{
+            JSONArray jsonArray = new JSONArray(responseBody.string());
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONArray item = jsonArray.getJSONArray(i);
+                String time = item.getString(0);
+                double value = item.getDouble(1);
+                xLabels[i] = time;
+                entries.add(new Entry(i, (float) value));
+            }
+        }
+        catch (JSONException | IOException e){
+            e.printStackTrace();
         }
 
         LineDataSet dataSet = new LineDataSet(entries, "Temperature value");
@@ -148,7 +157,7 @@ public class InsightsFragment extends Fragment {
         XAxis xAxis = lineChart.getXAxis();
         xAxis.setDrawGridLines(false);
         xAxis.setValueFormatter(new XAxisValueFormatter(xLabels));
-        xAxis.setLabelCount(7, true);
+        xAxis.setLabelCount(Integer.parseInt(num), true);
         xAxis.setGranularity(1f);
 
         Legend legend = lineChart.getLegend();

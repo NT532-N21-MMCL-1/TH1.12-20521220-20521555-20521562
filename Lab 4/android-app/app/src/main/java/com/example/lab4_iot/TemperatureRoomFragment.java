@@ -38,8 +38,8 @@ public class TemperatureRoomFragment extends Fragment {
         apiRunnable = new Runnable() {
             @Override
             public void run() {
-                callCurrentTemp();
-                handler.postDelayed(this, 5500); // Gọi lại sau 5 giây
+                callCurrentTemp("temperature");
+                handler.postDelayed(this, 5500);
             }
         };
         return view;
@@ -65,22 +65,22 @@ public class TemperatureRoomFragment extends Fragment {
         handler.removeCallbacks(apiRunnable);
     }
 
-    private void callCurrentTemp(){
-        Call<ListSensorValue> call = apiService.getCurrentSensorValue();
-        call.enqueue(new Callback<ListSensorValue>() {
+    private void callCurrentTemp(String column_name){
+        Call<Float> call = apiService.getCurrentSensorValue(column_name);
+        call.enqueue(new Callback<Float>() {
             @Override
-            public void onResponse(Call<ListSensorValue> call, Response<ListSensorValue> response) {
+            public void onResponse(Call<Float> call, Response<Float> response) {
                 Log.d("Call current value", "onTemperatureFrag: " + response.body().toString());
-                ListSensorValue res = response.body();
+                Float res = response.body();
 
-                tvValue.setText(String.valueOf(res.getTemperature()));
-                float progressData = res.getTemperature();
+                tvValue.setText(String.valueOf(res));
+                float progressData = res;
                 int int_data = (int)progressData;
                 progressBar.setProgress(int_data);
             }
 
             @Override
-            public void onFailure(Call<ListSensorValue> call, Throwable t) {
+            public void onFailure(Call<Float> call, Throwable t) {
                 Log.e("Call current value", "onFailure: " + t.toString());
             }
         });
