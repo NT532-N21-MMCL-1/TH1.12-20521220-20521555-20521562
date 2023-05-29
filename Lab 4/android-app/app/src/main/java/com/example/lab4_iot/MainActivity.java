@@ -13,6 +13,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
     TextView titleScreen;
+    Fragment homeFragment = new HomeFragment();
+    Fragment dashboardFragment = new DashboardFragment();
+    Fragment insightsFragment = new InsightsFragment();
+    Fragment logsFragment = new LogsFragment();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,19 +38,19 @@ public class MainActivity extends AppCompatActivity {
                 Fragment selectedFragment = null;
                 switch(item.getItemId()) {
                     case R.id.navigation_home:
-                        selectedFragment = new HomeFragment();
+                        selectedFragment = homeFragment;
                         titleScreen.setText("Welcome");
                         break;
                     case R.id.navigation_dashboard:
-                        selectedFragment = new DashboardFragment();
+                        selectedFragment = dashboardFragment;
                         titleScreen.setText("Dashboard & Control Lights");
                         break;
                     case R.id.navigation_insights:
-                        selectedFragment = new InsightsFragment();
+                        selectedFragment = insightsFragment;
                         titleScreen.setText("Visualize Data");
                         break;
                     case R.id.navigation_logs:
-                        selectedFragment = new LogsFragment();
+                        selectedFragment = logsFragment;
                         titleScreen.setText("System Logs");
                         break;
                 }
