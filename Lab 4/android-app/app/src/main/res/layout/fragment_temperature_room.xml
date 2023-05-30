@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".TemperatureRoomFragment">
 
     <RelativeLayout
@@ -31,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="90"
+                android:text="value"
                 android:textColor="#007dfe"
                 android:textSize="40sp"
                 android:textStyle="bold" />
