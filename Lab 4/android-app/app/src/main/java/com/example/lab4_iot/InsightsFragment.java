@@ -16,28 +16,22 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Legend;
 import com.github.mikephil.charting.components.XAxis;
-import com.github.mikephil.charting.components.YAxis;
-import com.github.mikephil.charting.data.BarData;
-import com.github.mikephil.charting.data.BarDataSet;
-import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
-import com.google.gson.Gson;
+import com.github.mikephil.charting.utils.ViewPortHandler;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
-import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -48,8 +42,7 @@ public class InsightsFragment extends Fragment {
     String[] item = {"Temperature", "Humidity", "Light"};
     AutoCompleteTextView autoCompleteTextView;
     ArrayAdapter<String> adapterItems;
-    private LineChart temperatureChart, lightChart;
-    private BarChart humidityChart;
+    private LineChart temperatureChart, humidityChart, lightChart;
     private TextView charTitle;
     private Handler handler;
     private Runnable apiRunnable;
@@ -69,6 +62,8 @@ public class InsightsFragment extends Fragment {
             @Override
             public void run() {
                 getSensorValues("temperature", "5");
+                getSensorValues("humidity", "5");
+                getSensorValues("light", "5");
                 handler.postDelayed(this, 5000);
             }
         };
@@ -111,10 +106,20 @@ public class InsightsFragment extends Fragment {
         numOfDataCall.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                ResponseBody responseBody = response.body();
-                importToTemperatureChart(temperatureChart, responseBody, num);
-//                importToHumidityChart(humidityChart, apiResponses);
-                //importToLightChart(lightChart, apiResponses);
+                if(response.isSuccessful()){
+                    ResponseBody responseBody = response.body();
+                    switch(name){
+                        case "temperature":
+                            importToTemperatureChart(temperatureChart, responseBody, num);
+                            break;
+                        case "humidity":
+                            importToHumidityChart(humidityChart, responseBody, num);
+                            break;
+                        case "light":
+                            importToLightChart(lightChart, responseBody, num);
+                            break;
+                    }
+                }
             }
 
             @Override
@@ -135,6 +140,7 @@ public class InsightsFragment extends Fragment {
                 JSONArray item = jsonArray.getJSONArray(i);
                 String time = item.getString(0);
                 double value = item.getDouble(1);
+
                 xLabels[i] = time;
                 entries.add(new Entry(i, (float) value));
             }
@@ -144,12 +150,13 @@ public class InsightsFragment extends Fragment {
         }
 
         LineDataSet dataSet = new LineDataSet(entries, "Temperature value");
-        dataSet.setColor(Color.parseColor("#f5be49"));
+        dataSet.setColor(Color.parseColor("#ffca74"));
         dataSet.setValueTextColor(Color.BLACK);
         dataSet.setValueTextSize(14);
-        dataSet.setLineWidth(5f);
-        dataSet.setCircleRadius(5);
-        dataSet.setCircleHoleRadius(4);
+
+        Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.fade_temperature_chart);
+        dataSet.setFillDrawable(drawable);
+        dataSet.setDrawFilled(true);
 
         LineData lineData = new LineData(dataSet);
         lineChart.setData(lineData);
@@ -167,56 +174,31 @@ public class InsightsFragment extends Fragment {
         lineChart.invalidate();
     }
 
-    private void importToHumidityChart(BarChart barChart, ListSensorValue[] listBarCharData){
-        barChart.setDrawGridBackground(false);
-        String[] xLabels = new String[listBarCharData.length];
-        ArrayList<BarEntry> entries = new ArrayList<>();
-        for(int i=0; i<listBarCharData.length; i++){
-            entries.add(new BarEntry(i, listBarCharData[i].getHumidity()));
-            xLabels[i] = listBarCharData[i].getDht_timestamp();
+    private void importToHumidityChart(LineChart lineChart,ResponseBody responseBody, String num){
+        lineChart.setDrawGridBackground(false);
+        String[] xLabels = new String[Integer.parseInt(num)];
+        ArrayList<Entry> entries = new ArrayList<>();
+
+        try{
+            JSONArray jsonArray = new JSONArray(responseBody.string());
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONArray item = jsonArray.getJSONArray(i);
+                String time = item.getString(0);
+                double value = item.getDouble(1);
+                xLabels[i] = time;
+                entries.add(new Entry(i, (float) value));
+            }
+        }
+        catch (JSONException | IOException e){
+            e.printStackTrace();
         }
 
-        BarDataSet dataSet = new BarDataSet(entries, "Humidity value");
-        dataSet.setColor(Color.parseColor("#F266AB"));
+        LineDataSet dataSet = new LineDataSet(entries, "Humidity value");
+        dataSet.setColor(Color.parseColor("#f585bc"));
         dataSet.setValueTextColor(Color.BLACK);
         dataSet.setValueTextSize(14);
 
-        BarData barData = new BarData(dataSet);
-        barChart.setData(barData);
-        barData.setBarWidth(0.5f);
-
-        XAxis xAxis = barChart.getXAxis();
-        xAxis.setValueFormatter(new XAxisValueFormatter(xLabels));
-        xAxis.setDrawGridLines(false);
-        xAxis.setLabelCount(7, true);
-        xAxis.setGranularity(1f);
-
-        Legend legend = barChart.getLegend();
-        legend.setTextSize(12);
-
-        barChart.getDescription().setEnabled(false);
-        barChart.invalidate();
-    }
-
-    private void importToLightChart(LineChart lineChart, ListSensorValue[] listLineChartData){
-        lineChart.setDrawGridBackground(false);
-        String[] xLabels = new String[listLineChartData.length];
-        ArrayList<Entry> entries = new ArrayList<>();
-
-        for(int i=0; i<listLineChartData.length; i++){
-            entries.add(new Entry(i, listLineChartData[i].getLight()));
-            xLabels[i] = listLineChartData[i].getBh1750_timestamp();
-        }
-
-        LineDataSet dataSet = new LineDataSet(entries, "Light value");
-        dataSet.setColor(Color.parseColor("#bef8fc"));
-        dataSet.setValueTextColor(Color.BLACK);
-        dataSet.setValueTextSize(16);
-        dataSet.setLineWidth(5f);
-        dataSet.setCircleRadius(5);
-        dataSet.setCircleHoleRadius(4);
-
-        Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.fade_line_chart);
+        Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.fade_humidity_chart);
         dataSet.setFillDrawable(drawable);
         dataSet.setDrawFilled(true);
 
@@ -226,7 +208,51 @@ public class InsightsFragment extends Fragment {
         XAxis xAxis = lineChart.getXAxis();
         xAxis.setValueFormatter(new XAxisValueFormatter(xLabels));
         xAxis.setDrawGridLines(false);
-        xAxis.setLabelCount(7, true);
+        xAxis.setLabelCount(Integer.parseInt(num), true);
+        xAxis.setGranularity(1f);
+
+        Legend legend = lineChart.getLegend();
+        legend.setTextSize(12);
+
+        lineChart.getDescription().setEnabled(false);
+        lineChart.invalidate();
+    }
+
+    private void importToLightChart(LineChart lineChart, ResponseBody responseBody, String num){
+        lineChart.setDrawGridBackground(false);
+        String[] xLabels = new String[Integer.parseInt(num)];
+        ArrayList<Entry> entries = new ArrayList<>();
+
+        try{
+            JSONArray jsonArray = new JSONArray(responseBody.string());
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONArray item = jsonArray.getJSONArray(i);
+                String time = item.getString(0);
+                double value = item.getDouble(1);
+                xLabels[i] = time;
+                entries.add(new Entry(i, (float) value));
+            }
+        }
+        catch (JSONException | IOException e){
+            e.printStackTrace();
+        }
+
+        LineDataSet dataSet = new LineDataSet(entries, "Light value");
+        dataSet.setColor(Color.parseColor("#82f7ff"));
+        dataSet.setValueTextColor(Color.BLACK);
+        dataSet.setValueTextSize(14);
+
+        Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.fade_light_chart);
+        dataSet.setFillDrawable(drawable);
+        dataSet.setDrawFilled(true);
+
+        LineData lineData = new LineData(dataSet);
+        lineChart.setData(lineData);
+
+        XAxis xAxis = lineChart.getXAxis();
+        xAxis.setValueFormatter(new XAxisValueFormatter(xLabels));
+        xAxis.setDrawGridLines(false);
+        xAxis.setLabelCount(Integer.parseInt(num), true);
         xAxis.setGranularity(1f);
 
         Legend legend = lineChart.getLegend();
