@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
+        android:title="@string/navigation_home"
         android:id="@+id/navigation_home"
         android:icon="@drawable/home_selector"/>
 
     <item
+        android:title="@string/navigation_dashboard"
         android:id="@+id/navigation_dashboard"
         android:icon="@drawable/dashboard_selector"/>
 
     <item
+        android:title="@string/navigation_ai"
+        android:id="@+id/navigation_ai"
+        android:icon="@drawable/ai_selector"/>
+
+    <item
+        android:title="@string/navigation_insights"
         android:id="@+id/navigation_insights"
         android:icon="@drawable/insights_selector"/>
 
     <item
+        android:title="@string/navigation_logs"
         android:id="@+id/navigation_logs"
         android:icon="@drawable/logs_selector"/>
 </menu>
