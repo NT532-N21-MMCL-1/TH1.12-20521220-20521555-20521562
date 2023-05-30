@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     Fragment dashboardFragment = new DashboardFragment();
     Fragment insightsFragment = new InsightsFragment();
     Fragment logsFragment = new LogsFragment();
+    Fragment aiFragment = new AIFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +46,12 @@ public class MainActivity extends AppCompatActivity {
                         selectedFragment = dashboardFragment;
                         titleScreen.setText("Dashboard & Control Lights");
                         break;
+                    case R.id.navigation_ai:
+                        selectedFragment = aiFragment;
+                        titleScreen.setText("AI");
+                        break;
                     case R.id.navigation_insights:
-                        selectedFragment = insightsFragment;
+                        selectedFragment = new InsightsFragment();
                         titleScreen.setText("Visualize Data");
                         break;
                     case R.id.navigation_logs:
