@@ -23,8 +23,7 @@ import retrofit2.Response;
 public class TemperatureRoomFragment extends Fragment {
     private TextView tvValue;
     private ProgressBar progressBar;
-    private Handler handler;
-    private Runnable apiRunnable;
+    private Timer timer;
     ApiService apiService = ApiClient.getApiService();
 
     @Override
@@ -34,35 +33,47 @@ public class TemperatureRoomFragment extends Fragment {
         tvValue = view.findViewById(R.id.txtTempValue);
         progressBar = view.findViewById(R.id.temperatureCircle);
 
-        handler = new Handler();
-        apiRunnable = new Runnable() {
+        startAPITimer();
+
+        return view;
+    }
+
+    private void startAPITimer() {
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
             @Override
             public void run() {
                 callCurrentTemp("temperature");
-                handler.postDelayed(this, 5500);
             }
-        };
-        return view;
+        }, 0, 5000);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if (timer != null) {
+            timer.cancel();
+            timer = null;
+        }
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        startAPICalls();
+        startAPITimer();
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        stopAPICalls();
+        stopAPITimer();
     }
 
-    private void startAPICalls() {
-        handler.postDelayed(apiRunnable, 0);
-    }
-
-    private void stopAPICalls() {
-        handler.removeCallbacks(apiRunnable);
+    private void stopAPITimer() {
+        if (timer != null) {
+            timer.cancel();
+            timer = null;
+        }
     }
 
     private void callCurrentTemp(String column_name){
@@ -70,13 +81,15 @@ public class TemperatureRoomFragment extends Fragment {
         call.enqueue(new Callback<Float>() {
             @Override
             public void onResponse(Call<Float> call, Response<Float> response) {
-                Log.d("Call current value", "onTemperatureFrag: " + response.body().toString());
-                Float res = response.body();
+                if(response.isSuccessful()){
+                    Log.d("Call current value", "onTemperatureFrag: " + response.body().toString());
+                    Float res = response.body();
 
-                tvValue.setText(String.valueOf(res));
-                float progressData = res;
-                int int_data = (int)progressData;
-                progressBar.setProgress(int_data);
+                    tvValue.setText(String.valueOf(res));
+                    float progressData = res;
+                    int int_data = (int)progressData;
+                    progressBar.setProgress(int_data);
+                }
             }
 
             @Override
