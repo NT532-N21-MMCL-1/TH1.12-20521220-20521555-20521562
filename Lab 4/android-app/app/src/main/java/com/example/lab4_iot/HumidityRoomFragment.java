@@ -12,6 +12,9 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -19,8 +22,7 @@ import retrofit2.Response;
 public class HumidityRoomFragment extends Fragment {
     private TextView tvValue;
     private ProgressBar progressBar;
-    private Handler handler;
-    private Runnable apiRunnable;
+    private Timer timer;
     ApiService apiService = ApiClient.getApiService();
 
     @Override
@@ -31,14 +33,7 @@ public class HumidityRoomFragment extends Fragment {
 
         progressBar = view.findViewById(R.id.humidityCircle);
 
-        handler = new Handler();
-        apiRunnable = new Runnable() {
-            @Override
-            public void run() {
-                callCurrentHum("humidity");
-                handler.postDelayed(this, 5500); // Gọi lại sau 5 giây
-            }
-        };
+        startAPITimer();
 
         return view;
     }
@@ -46,21 +41,40 @@ public class HumidityRoomFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        startAPICalls();
+        startAPITimer();
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        stopAPICalls();
+        stopAPITimer();
     }
 
-    private void startAPICalls() {
-        handler.postDelayed(apiRunnable, 0);
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        // Hủy bỏ lịch timer khi Fragment bị hủy
+        if (timer != null) {
+            timer.cancel();
+            timer = null;
+        }
     }
 
-    private void stopAPICalls() {
-        handler.removeCallbacks(apiRunnable);
+    private void startAPITimer() {
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                callCurrentHum("humidity");
+            }
+        }, 0, 5000);
+    }
+
+    private void stopAPITimer() {
+        if (timer != null) {
+            timer.cancel();
+            timer = null;
+        }
     }
 
     private void callCurrentHum(String column_name){
