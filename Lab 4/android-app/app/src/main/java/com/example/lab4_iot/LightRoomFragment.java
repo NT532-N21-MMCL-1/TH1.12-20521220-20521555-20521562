@@ -12,6 +12,10 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+import java.util.Timer;
+import java.util.TimerTask;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -19,8 +23,7 @@ import retrofit2.Response;
 public class LightRoomFragment extends Fragment {
     private TextView tvValue;
     private ProgressBar progressBar;
-    private Handler handler;
-    private Runnable apiRunnable;
+    private Timer timer;
     ApiService apiService = ApiClient.getApiService();
 
     @Override
@@ -30,35 +33,47 @@ public class LightRoomFragment extends Fragment {
         tvValue = view.findViewById(R.id.txtLightValue);
         progressBar = view.findViewById(R.id.lightCircle);
 
-        handler = new Handler();
-        apiRunnable = new Runnable() {
-            @Override
-            public void run() {
-                callCurrentTemp("light");
-                handler.postDelayed(this, 5500);
-            }
-        };
+        startAPITimer();
+
         return view;
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        startAPICalls();
+        startAPITimer();
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        stopAPICalls();
+        stopAPITimer();
     }
 
-    private void startAPICalls() {
-        handler.postDelayed(apiRunnable, 0);
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if (timer != null) {
+            timer.cancel();
+            timer = null;
+        }
     }
 
-    private void stopAPICalls() {
-        handler.removeCallbacks(apiRunnable);
+    private void stopAPITimer() {
+        if (timer != null) {
+            timer.cancel();
+            timer = null;
+        }
+    }
+
+    private void startAPITimer() {
+        timer = new Timer();
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                callCurrentTemp("light");
+            }
+        }, 0, 5000); // Gọi API sau mỗi 5 giây
     }
 
     private void callCurrentTemp(String column_name){
@@ -66,11 +81,12 @@ public class LightRoomFragment extends Fragment {
         call.enqueue(new Callback<Float>() {
             @Override
             public void onResponse(Call<Float> call, Response<Float> response) {
-                Log.d("Call current value", "onLightFrag: " + response.code());
                 if (response.body() != null){
                     Log.d("Call current value", "onLightFrag: " + response.body().toString());
                     Float res = response.body();
-                    tvValue.setText(String.valueOf(res));
+
+                    long roundedNumber = Math.round(res);
+                    tvValue.setText(String.valueOf(roundedNumber));
                     float progressData = res;
                     int int_data = (int)progressData;
                     progressBar.setProgress(int_data);
