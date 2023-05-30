@@ -6,8 +6,8 @@ import retrofit2.http.GET;
 import retrofit2.http.Path;
 
 public interface ApiService {
-    @GET("sqlite/retrieve/all_data")
-    Call<ListSensorValue[]> getListSensorValue();
+    @GET("sqlite/retrieve/all_data/{num}")
+    Call<DataResponse> getListSensorValue(@Path("num") Integer num);
 
     @GET("sqlite/retrieve/current_data/{column_name}")
     Call<Float> getCurrentSensorValue(@Path("column_name") String name);
