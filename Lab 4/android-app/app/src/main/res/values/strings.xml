@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Lab4_IoT</string>
     <string name="navigation_home">Home</string>
+    <string name="navigation_ai">AI</string>
     <string name="navigation_dashboard">Dashboard</string>
     <string name="navigation_insights">Insights</string>
     <string name="navigation_logs">Logs</string>
