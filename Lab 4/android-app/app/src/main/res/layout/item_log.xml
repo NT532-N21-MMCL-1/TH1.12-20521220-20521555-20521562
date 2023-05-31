@@ -27,6 +27,7 @@
             android:layout_below="@+id/nameWemos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="wemos IP" />
 
         <TextView
@@ -34,6 +35,7 @@
             android:layout_below="@+id/ipWemos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="wemos ID"/>
 
         <TextView
@@ -43,8 +45,8 @@
             android:layout_centerInParent="true"
             android:text="Value Type"
             android:textColor="#f5be49"
-            android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textSize="17sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/value"
@@ -62,6 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="time"
+            android:textColor="@color/black"
             android:layout_alignParentRight="true"/>
     </RelativeLayout>
 

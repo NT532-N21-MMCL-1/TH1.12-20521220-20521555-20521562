@@ -13,6 +13,9 @@ import android.widget.ImageButton;
 
 import com.google.android.material.tabs.TabLayout;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class DashboardFragment extends Fragment {
     private String TAG = "mqtt check";
     private ImageButton light1, light2;
@@ -20,6 +23,8 @@ public class DashboardFragment extends Fragment {
     private static final String BROKER_URL = "tcp://172.31.9.11:1883";
     private static final String CLIENT_ID = "client_android";
     private MqttHandler mqttHandler;
+
+    private Timer timer;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,22 +45,27 @@ public class DashboardFragment extends Fragment {
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
 
-//        mqttHandler = new MqttHandler();
-//        mqttHandler.connect(BROKER_URL,CLIENT_ID);
-//
-//        light1.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                mqttHandler.publish("mmcl/nhom12/led/n1", "clicked");
-//            }
-//        });
-//
-//        light2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                mqttHandler.publish("mmcl/nhom12/led/n2", "clicked");
-//            }
-//        });
+        initMQTT();
+
         return view;
+    }
+
+    void initMQTT(){
+        mqttHandler = new MqttHandler();
+        mqttHandler.connect(BROKER_URL,CLIENT_ID);
+
+        light1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mqttHandler.publish("mmcl/nhom12/led/n1", "clicked");
+            }
+        });
+
+        light2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mqttHandler.publish("mmcl/nhom12/led/n2", "clicked");
+            }
+        });
     }
 }

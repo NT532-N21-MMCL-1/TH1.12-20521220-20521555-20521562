@@ -43,6 +43,7 @@
                 android:layout_gravity="fill"
                 android:layout_toRightOf="@+id/txtHumValue"
                 android:text="%"
+                android:textColor="@color/black"
                 android:textSize="20sp" />
         </RelativeLayout>
     </RelativeLayout>

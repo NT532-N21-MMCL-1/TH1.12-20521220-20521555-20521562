@@ -39,8 +39,8 @@ public class DataItemAdapter extends RecyclerView.Adapter<DataItemAdapter.DataIt
         }
 
         holder.nameWemos.setText(dataItem.getNameWM());
-        holder.ipWemos.setText(dataItem.getIpWM());
-        holder.idWemos.setText(String.valueOf(dataItem.getIdWM()));
+        holder.ipWemos.setText("IP: " + dataItem.getIpWM());
+        holder.idWemos.setText("ID: " + String.valueOf(dataItem.getIdWM()));
         holder.typeValue.setText(dataItem.getTypeValue());
         holder.value.setText(strValue);
         holder.timestamp.setText(dataItem.getTimestamp());

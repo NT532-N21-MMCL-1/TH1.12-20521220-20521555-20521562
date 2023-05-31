@@ -42,6 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="fill"
                 android:text="\u00b0C"
+                android:textColor="@color/black"
                 android:textSize="20sp"
                 android:layout_toRightOf="@+id/txtTempValue"/>
 

@@ -43,6 +43,7 @@
                 android:layout_gravity="fill"
                 android:text="lux"
                 android:textSize="20sp"
+                android:textColor="@color/black"
                 android:layout_toRightOf="@+id/txtLightValue"/>
         </RelativeLayout>
     </RelativeLayout>

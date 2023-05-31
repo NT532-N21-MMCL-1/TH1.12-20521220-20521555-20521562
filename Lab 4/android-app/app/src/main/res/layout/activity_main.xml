@@ -11,7 +11,7 @@
     <FrameLayout
         android:id="@+id/titleBar"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="80dp"
         android:background="#007dfe">
 
         <TextView
@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Title"
-            android:textSize="20sp"
+            android:textSize="25sp"
             android:textColor="@color/white"
             android:textStyle="bold"
             android:layout_gravity="center_vertical"
@@ -37,7 +37,7 @@
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?android:attr/windowBackground"
+        android:background="@color/white"
         app:itemTextColor="@drawable/title_icon_selector"
         app:menu="@menu/bottom_navigation_menu"/>
 

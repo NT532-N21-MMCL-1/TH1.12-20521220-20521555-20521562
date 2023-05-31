@@ -15,6 +15,9 @@
         android:hint="@string/select_chart"
         app:hintTextColor="#007dfe"
         app:boxStrokeColor="#007dfe"
+        android:textColorHint="#007dfe"
+        android:background="@color/white"
+
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
 
         <AutoCompleteTextView
@@ -31,30 +34,29 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_gravity="center"
-        android:text="Title"
+        android:text="7 recent values"
         android:textColor="#007dfe"
         android:textStyle="bold"
-        android:textSize="20sp"
-        android:visibility="gone"/>
+        android:textSize="20sp" />
 
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/temperatureChart"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="450dp"
         android:layout_marginTop="20dp"
         android:visibility="gone"/>
 
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/humidityChart"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="450dp"
         android:layout_marginTop="20dp"
         android:visibility="gone"/>
 
     <com.github.mikephil.charting.charts.LineChart
         android:id="@+id/lightChart"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="450dp"
         android:layout_marginTop="20dp"
         android:visibility="gone"/>
 
