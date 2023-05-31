@@ -19,9 +19,9 @@ WiFiClient wifiClient;
 StaticJsonDocument<200> jsonObj;
 //JsonObject dataObj = jsonObj.createNestedObject("data");
 
-#define DHTPIN D3
-#define led1 D4
-#define led2 D5
+#define DHTPIN D4
+#define led1 D5
+#define led2 D6
 
 const int DHTTYPE = DHT11;  
 DHT dht(DHTPIN, DHTTYPE);
@@ -64,7 +64,7 @@ void loop() {
     float t = dht.readTemperature(); 
     Serial.println("temp: ");
     Serial.print(t);
-    Serial.print(" hum: ");
+    Serial.println(" hum: ");
     Serial.print(h);
   
     if(!isnan(t) && !isnan(h)){
@@ -93,7 +93,6 @@ void loop() {
       http.end();
     }
     oldtime = millis();  
-    Serial.println("5s roi nhe");  
   }
 
   if (!client.connected()) {
