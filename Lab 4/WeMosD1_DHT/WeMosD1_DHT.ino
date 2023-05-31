@@ -93,7 +93,6 @@ void loop() {
       http.end();
     }
     oldtime = millis();  
-    Serial.println("5s roi nhe");  
   }
 
   if (!client.connected()) {
