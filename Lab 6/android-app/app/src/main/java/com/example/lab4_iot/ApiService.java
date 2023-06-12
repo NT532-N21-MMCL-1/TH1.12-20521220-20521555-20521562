@@ -1,7 +1,11 @@
 package com.example.lab4_iot;
 
+import org.json.JSONObject;
+
+import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
@@ -18,4 +22,7 @@ public interface ApiService {
 
     @GET("sqlite/retrieve/amount_of_data/{column_name}/{num}")
     Call<ResponseBody> getNumOfData(@Path("column_name") String name, @Path("num") String num);
+
+    @POST("predict")
+    Call<PredictionResponse> postData(@Body RequestBody requestBody);
 }

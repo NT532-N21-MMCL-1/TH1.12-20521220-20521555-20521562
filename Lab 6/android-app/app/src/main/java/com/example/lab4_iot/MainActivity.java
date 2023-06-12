@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -17,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     Fragment dashboardFragment = new DashboardFragment();
     Fragment insightsFragment = new InsightsFragment();
     Fragment logsFragment = new LogsFragment();
-    Fragment aiFragment = new AIFragment();
+    Fragment aiFragment = new RainPredictionFragment();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
