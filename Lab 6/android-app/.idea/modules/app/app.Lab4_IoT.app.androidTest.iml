@@ -101,5 +101,4 @@
     <orderEntry type="library" scope="TEST" name="Gradle: com.github.Far5had70:GradientButton:1.1.0@aar" level="project" />
     <orderEntry type="library" scope="TEST" name="Gradle: com.github.PhilJay:MPAndroidChart:v3.1.0@aar" level="project" />
   </component>
-  <component name="TestModuleProperties" production-module="Lab4_IoT.app.main" />
 </module>
