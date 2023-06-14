@@ -32,7 +32,7 @@ public class PredictionBody {
             float temp9am = random(minTemp, maxTemp);
             requestBody.put("Temp9am", temp9am);
 
-            float temp3pm = random(min, max);
+            float temp3pm = random(minTemp, maxTemp);
             requestBody.put("Temp3pm", temp3pm);
         } catch (JSONException e) {
             e.printStackTrace();
