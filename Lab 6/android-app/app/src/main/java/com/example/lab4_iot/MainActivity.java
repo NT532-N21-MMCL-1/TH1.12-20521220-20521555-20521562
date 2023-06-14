@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.navigation_ai:
                         selectedFragment = aiFragment;
-                        titleScreen.setText("AI");
+                        titleScreen.setText("Rain Forecast Tomorrow");
                         break;
                     case R.id.navigation_insights:
                         selectedFragment = new InsightsFragment();
