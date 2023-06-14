@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:elevation="3dp"
+    app:cardCornerRadius="10dp"
+    android:backgroundTint="@color/cardBG"
+    android:layout_marginBottom="10dp">
+    
+    <RelativeLayout
+        android:padding="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/nameWemos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="wemos name"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#2cd400"/>
+        
+        <TextView
+            android:id="@+id/ipWemos"
+            android:layout_below="@+id/nameWemos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="wemos IP" />
+
+        <TextView
+            android:id="@+id/idWemos"
+            android:layout_below="@+id/ipWemos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="wemos ID"/>
+
+        <TextView
+            android:id="@+id/typeValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Value Type"
+            android:textColor="#f5be49"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Value"
+            android:layout_alignParentRight="true"
+            android:textSize="35sp"
+            android:textColor="#f266ab"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/timestamp"
+            android:layout_below="@+id/value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="time"
+            android:textColor="@color/black"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,222 @@
+[
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/drawable_fade_temperature_chart.xml.flat",
+        "source": "com.example.lab4_iot.app-main-32:/drawable/fade_temperature_chart.xml"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/drawable_ic_log_deactive.png.flat",
+        "source": "com.example.lab4_iot.app-main-32:/drawable/ic_log_deactive.png"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/mipmap-anydpi-v33_ic_launcher.xml.flat",
+        "source": "com.example.lab4_iot.app-main-32:/mipmap-anydpi-v33/ic_launcher.xml"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.lab4_iot.app-main-32:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.example.lab4_iot.app-main-32:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/drawable_ic_log_active.png.flat",
+        "source": "com.example.lab4_iot.app-main-32:/drawable/ic_log_active.png"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/drawable_ic_dashboard_active.png.flat",
+        "source": "com.example.lab4_iot.app-main-32:/drawable/ic_dashboard_active.png"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.lab4_iot.app-main-32:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/drawable_robot_img.png.flat",
+        "source": "com.example.lab4_iot.app-main-32:/drawable/robot_img.png"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.example.lab4_iot.app-main-32:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/layout_activity_main.xml.flat",
+        "source": "com.example.lab4_iot.app-main-32:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/xml_data_extraction_rules.xml.flat",
+        "source": "com.example.lab4_iot.app-main-32:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/layout_fragment_a_i.xml.flat",
+        "source": "com.example.lab4_iot.app-main-32:/layout/fragment_a_i.xml"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.example.lab4_iot.app-main-32:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/drawable_ic_dashboard_deactive.png.flat",
+        "source": "com.example.lab4_iot.app-main-32:/drawable/ic_dashboard_deactive.png"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/drawable_ic_ai_active.png.flat",
+        "source": "com.example.lab4_iot.app-main-32:/drawable/ic_ai_active.png"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/drawable_dashboard_selector.xml.flat",
+        "source": "com.example.lab4_iot.app-main-32:/drawable/dashboard_selector.xml"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/drawable_ic_home_active.png.flat",
+        "source": "com.example.lab4_iot.app-main-32:/drawable/ic_home_active.png"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/drawable_logs_selector.xml.flat",
+        "source": "com.example.lab4_iot.app-main-32:/drawable/logs_selector.xml"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/drawable_title_icon_selector.xml.flat",
+        "source": "com.example.lab4_iot.app-main-32:/drawable/title_icon_selector.xml"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/layout_fragment_logs.xml.flat",
+        "source": "com.example.lab4_iot.app-main-32:/layout/fragment_logs.xml"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/drawable_fade_humidity_chart.xml.flat",
+        "source": "com.example.lab4_iot.app-main-32:/drawable/fade_humidity_chart.xml"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.lab4_iot.app-main-32:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.example.lab4_iot.app-main-32:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/drawable_progress_circle.xml.flat",
+        "source": "com.example.lab4_iot.app-main-32:/drawable/progress_circle.xml"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/layout_fragment_humidity_room.xml.flat",
+        "source": "com.example.lab4_iot.app-main-32:/layout/fragment_humidity_room.xml"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.lab4_iot.app-main-32:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/drawable_ic_insights_deactive.png.flat",
+        "source": "com.example.lab4_iot.app-main-32:/drawable/ic_insights_deactive.png"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.lab4_iot.app-main-32:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/drawable_fade_light_chart.xml.flat",
+        "source": "com.example.lab4_iot.app-main-32:/drawable/fade_light_chart.xml"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.lab4_iot.app-main-32:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/drawable_home_selector.xml.flat",
+        "source": "com.example.lab4_iot.app-main-32:/drawable/home_selector.xml"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/drawable_tab_indicator.xml.flat",
+        "source": "com.example.lab4_iot.app-main-32:/drawable/tab_indicator.xml"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/drawable_light_icon.png.flat",
+        "source": "com.example.lab4_iot.app-main-32:/drawable/light_icon.png"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/drawable_wemos_image.jpg.flat",
+        "source": "com.example.lab4_iot.app-main-32:/drawable/wemos_image.jpg"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.example.lab4_iot.app-main-32:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/layout_fragment_dashboard.xml.flat",
+        "source": "com.example.lab4_iot.app-main-32:/layout/fragment_dashboard.xml"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/drawable_ic_home_deactive.png.flat",
+        "source": "com.example.lab4_iot.app-main-32:/drawable/ic_home_deactive.png"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/drawable_ic_insights_active.png.flat",
+        "source": "com.example.lab4_iot.app-main-32:/drawable/ic_insights_active.png"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/drawable_ai_selector.xml.flat",
+        "source": "com.example.lab4_iot.app-main-32:/drawable/ai_selector.xml"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/layout_fragment_temperature_room.xml.flat",
+        "source": "com.example.lab4_iot.app-main-32:/layout/fragment_temperature_room.xml"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.lab4_iot.app-main-32:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/layout_fragment_insights.xml.flat",
+        "source": "com.example.lab4_iot.app-main-32:/layout/fragment_insights.xml"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/layout_item_log.xml.flat",
+        "source": "com.example.lab4_iot.app-main-32:/layout/item_log.xml"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/layout_fragment_light_room.xml.flat",
+        "source": "com.example.lab4_iot.app-main-32:/layout/fragment_light_room.xml"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "com.example.lab4_iot.app-main-32:/drawable-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/xml_backup_rules.xml.flat",
+        "source": "com.example.lab4_iot.app-main-32:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/layout_fragment_home.xml.flat",
+        "source": "com.example.lab4_iot.app-main-32:/layout/fragment_home.xml"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/drawable_ic_ai_deactive.png.flat",
+        "source": "com.example.lab4_iot.app-main-32:/drawable/ic_ai_deactive.png"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/drawable_insights_selector.xml.flat",
+        "source": "com.example.lab4_iot.app-main-32:/drawable/insights_selector.xml"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/layout_list_chart_select.xml.flat",
+        "source": "com.example.lab4_iot.app-main-32:/layout/list_chart_select.xml"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/menu_bottom_navigation_menu.xml.flat",
+        "source": "com.example.lab4_iot.app-main-32:/menu/bottom_navigation_menu.xml"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.example.lab4_iot.app-main-32:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/drawable_dashboard_image.jpg.flat",
+        "source": "com.example.lab4_iot.app-main-32:/drawable/dashboard_image.jpg"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-30:/drawable_custom_button.xml.flat",
+        "source": "com.example.lab4_iot.app-main-32:/drawable/custom_button.xml"
+    }
+]

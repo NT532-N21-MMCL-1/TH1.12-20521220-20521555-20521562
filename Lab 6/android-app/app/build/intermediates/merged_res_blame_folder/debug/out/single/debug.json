@@ -1,0 +1,238 @@
+[
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-29:/drawable_rainy_illustration.png.flat",
+        "source": "com.example.lab4_iot.app-main-31:/drawable/rainy_illustration.png"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\drawable_ai_selector.xml.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\drawable\\ai_selector.xml"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\drawable_ic_insights_deactive.png.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\drawable\\ic_insights_deactive.png"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-29:/layout_fragment_rain_prediction.xml.flat",
+        "source": "com.example.lab4_iot.app-main-31:/layout/fragment_rain_prediction.xml"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\drawable_wemos_image.jpg.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\drawable\\wemos_image.jpg"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\drawable_ic_log_deactive.png.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\drawable\\ic_log_deactive.png"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\layout_fragment_dashboard.xml.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\layout\\fragment_dashboard.xml"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\drawable_ic_home_deactive.png.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\drawable\\ic_home_deactive.png"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\drawable_logs_selector.xml.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\drawable\\logs_selector.xml"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\layout_item_log.xml.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\layout\\item_log.xml"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\drawable_fade_light_chart.xml.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\drawable\\fade_light_chart.xml"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\drawable-v24\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\drawable_title_icon_selector.xml.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\drawable\\title_icon_selector.xml"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\layout_fragment_logs.xml.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\layout\\fragment_logs.xml"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\drawable_dashboard_image.jpg.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\drawable\\dashboard_image.jpg"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\layout_list_chart_select.xml.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\layout\\list_chart_select.xml"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\layout_fragment_rain_forecast.xml.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\layout\\fragment_rain_forecast.xml"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\drawable_ic_ai_active.png.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\drawable\\ic_ai_active.png"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\layout_fragment_insights.xml.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\layout\\fragment_insights.xml"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\layout_fragment_humidity_room.xml.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\layout\\fragment_humidity_room.xml"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\mipmap-xhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\layout_fragment_temperature_room.xml.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\layout\\fragment_temperature_room.xml"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\drawable_fade_humidity_chart.xml.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\drawable\\fade_humidity_chart.xml"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\drawable_ic_log_active.png.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\drawable\\ic_log_active.png"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\drawable_ic_dashboard_deactive.png.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\drawable\\ic_dashboard_deactive.png"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\drawable_progress_circle.xml.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\drawable\\progress_circle.xml"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\drawable_robot_img.png.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\drawable\\robot_img.png"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\mipmap-anydpi-v33_ic_launcher.xml.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\mipmap-anydpi-v33\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\menu_bottom_navigation_menu.xml.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\menu\\bottom_navigation_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\drawable_fade_temperature_chart.xml.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\drawable\\fade_temperature_chart.xml"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\drawable_home_selector.xml.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\drawable\\home_selector.xml"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\drawable_tab_indicator.xml.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\drawable\\tab_indicator.xml"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\drawable_ic_ai_deactive.png.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\drawable\\ic_ai_deactive.png"
+    },
+    {
+        "merged": "com.example.lab4_iot.app-merged_res-29:/drawable_sunny_illustration.png.flat",
+        "source": "com.example.lab4_iot.app-main-31:/drawable/sunny_illustration.png"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\drawable_ic_insights_active.png.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\drawable\\ic_insights_active.png"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\layout_fragment_light_room.xml.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\layout\\fragment_light_room.xml"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\layout_fragment_a_i.xml.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\layout\\fragment_a_i.xml"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\layout_fragment_home.xml.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\layout\\fragment_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\drawable_insights_selector.xml.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\drawable\\insights_selector.xml"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\drawable_ic_dashboard_active.png.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\drawable\\ic_dashboard_active.png"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\drawable_ic_home_active.png.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\drawable\\ic_home_active.png"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\drawable_light_icon.png.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\drawable\\light_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\drawable_custom_button.xml.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\drawable\\custom_button.xml"
+    },
+    {
+        "merged": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-merged_res-29:\\drawable_dashboard_selector.xml.flat",
+        "source": "C:\\Users\\duonq\\.gradle\\daemon\\8.0\\com.example.lab4_iot.app-main-31:\\drawable\\dashboard_selector.xml"
+    }
+]

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.Far5had70:GradientButton:1.1.0@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/df5bcdb4dd8644809d5ec56c680dc6eb/transformed/jetified-GradientButton-1.1.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/df5bcdb4dd8644809d5ec56c680dc6eb/transformed/jetified-GradientButton-1.1.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/df5bcdb4dd8644809d5ec56c680dc6eb/transformed/jetified-GradientButton-1.1.0/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
