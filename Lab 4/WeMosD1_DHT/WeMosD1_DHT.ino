@@ -98,7 +98,7 @@ void loop() {
   if (!client.connected()) {
       reconnect();
     }
-    client.loop();
+  client.loop();
 }
 
 void callback(char* topic, byte* payload, unsigned int length) {
